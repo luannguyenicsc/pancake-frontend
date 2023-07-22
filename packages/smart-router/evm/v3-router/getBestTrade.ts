@@ -15,6 +15,7 @@ export async function getBestTrade(
   const { blockNumber: blockNumberFromConfig } = config
   const blockNumber: BigintIsh | undefined =
     typeof blockNumberFromConfig === 'function' ? await blockNumberFromConfig() : blockNumberFromConfig
+  
   const bestRoutes = await getBestRoutes(amount, currency, tradeType, {
     ...config,
     blockNumber,
@@ -68,7 +69,6 @@ async function getBestRoutes(
     blockNumber,
     protocols: allowedPoolTypes,
   })
-
   let baseRoutes = computeAllRoutes(inputCurrency, outputCurrency, candidatePools, maxHops)
   // Do not support mix route on exact output
   if (tradeType === TradeType.EXACT_OUTPUT) {
@@ -76,6 +76,8 @@ async function getBestRoutes(
   }
 
   const gasModel = await createGasModel({ gasPriceWei, poolProvider, quoteCurrency: currency, blockNumber })
+
+
   const routesWithValidQuote = await getRoutesWithValidQuote({
     amount,
     baseRoutes,

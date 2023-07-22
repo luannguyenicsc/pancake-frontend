@@ -312,6 +312,7 @@ export function useMultipleContractSingleData<TAbi extends Abi | readonly unknow
         : [],
     [addresses, callData],
   )
+  console.log('calls addreses- functionname', addresses, functionName )
 
   const results = useCallsData(calls, options?.blocksPerFetch ? { blocksPerFetch } : DEFAULT_OPTIONS)
   const { chainId } = useActiveChainId()

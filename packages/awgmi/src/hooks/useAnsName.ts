@@ -12,7 +12,9 @@ export const queryKey = ({ networkName, address }: { networkName?: string; addre
   [{ entity: 'ansAddress', networkName, address }] as const
 
 const queryFn = ({ queryKey: [{ networkName, address }] }: QueryFunctionArgs<typeof queryKey>) => {
-  if (!address) throw new Error('address is required')
+  console.log('~~~~~~ res queryFn networkName', networkName)
+  console.log('~~~~~~ res queryFn address', address)
+  if (!address) throw new Error('address is required 3333333333333333')
   return fetchAnsName({ networkName, address })
 }
 

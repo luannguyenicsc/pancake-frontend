@@ -7,6 +7,7 @@ export const SUPPORTED_CHAINS = [
   ChainId.POLYGON_ZKEVM,
   ChainId.BSC_TESTNET,
   ChainId.GOERLI,
+  ChainId.FDAX
 ] as const
 
 type SupportedChainId = (typeof SUPPORTED_CHAINS)[number]
@@ -19,4 +20,5 @@ export const V3_SUBGRAPH_URLS: Record<SupportedChainId, string> = {
   [ChainId.POLYGON_ZKEVM]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-polygon-zkevm/v0.0.0',
   [ChainId.LINEA_TESTNET]:
     'https://thegraph.goerli.zkevm.consensys.net/subgraphs/name/pancakeswap/exchange-v3-linea-goerli',
+  [ChainId.FDAX]: 'https://api.miexx.com/subgraphs/name/miexxswap/exchange-v3-fdax',
 }

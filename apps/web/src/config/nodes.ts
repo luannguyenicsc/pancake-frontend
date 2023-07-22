@@ -37,6 +37,7 @@ export const SERVER_NODES = {
     'https://linea-testnet.rpc.thirdweb.com',
     'https://consensys-zkevm-goerli-prealpha.infura.io/v3/93e8a17747e34ec0ac9a554c1b403965',
   ],
+  [ChainId.FDAX]: ['https://mainnet-rpc.5dax.com'],
 } satisfies Record<ChainId, readonly string[]>
 
 export const PUBLIC_NODES = {
@@ -70,4 +71,5 @@ export const PUBLIC_NODES = {
     'https://linea-testnet.rpc.thirdweb.com',
     'https://consensys-zkevm-goerli-prealpha.infura.io/v3/93e8a17747e34ec0ac9a554c1b403965',
   ],
+  [ChainId.FDAX]: ['https://mainnet-rpc.5dax.com'],
 } satisfies Record<ChainId, readonly string[]>

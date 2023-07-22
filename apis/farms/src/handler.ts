@@ -6,7 +6,7 @@ import { BUSD, CAKE } from '@pancakeswap/tokens'
 import { farmFetcher } from './helper'
 import { FarmKV, FarmResult } from './kv'
 import { updateLPsAPR } from './lpApr'
-import { bscClient, bscTestnetClient } from './provider'
+import { bscClient, bscTestnetClient, fdaxClient } from './provider'
 
 // copy from src/config, should merge them later
 const BSC_BLOCK_TIME = 3
@@ -72,11 +72,16 @@ const cakeBusdPairMap = {
     tokenA: CAKE[ChainId.BSC_TESTNET],
     tokenB: BUSD[ChainId.BSC_TESTNET],
   },
+  [ChainId.FDAX]: {
+    address: Pair.getAddress(CAKE[ChainId.FDAX], BUSD[ChainId.FDAX]),
+    tokenA: CAKE[ChainId.FDAX],
+    tokenB: BUSD[ChainId.FDAX],
+  },
 }
 
 const getCakePrice = async (isTestnet: boolean) => {
-  const pairConfig = cakeBusdPairMap[isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC]
-  const client = isTestnet ? bscTestnetClient : bscClient
+  const pairConfig = cakeBusdPairMap[isTestnet ? ChainId.BSC_TESTNET : ChainId.FDAX]
+  const client = isTestnet ? bscTestnetClient : fdaxClient
   const [reserve0, reserve1] = await client.readContract({
     abi: pairAbi,
     address: pairConfig.address,
@@ -100,15 +105,24 @@ const farmConfigApi = 'https://farms-config.pages.dev'
 export async function saveFarms(chainId: number, event: ScheduledEvent | FetchEvent) {
   try {
     const isTestnet = farmFetcher.isTestnet(chainId)
-    const farmsConfig = await (await fetch(`${farmConfigApi}/${chainId}.json`)).json<SerializedFarmConfig[]>()
+
+    let farmsConfig: SerializedFarmConfig[];
     let lpPriceHelpers: SerializedFarmConfig[] = []
-    try {
-      lpPriceHelpers = await (
-        await fetch(`${farmConfigApi}/priceHelperLps/${chainId}.json`)
-      ).json<SerializedFarmConfig[]>()
-    } catch (error) {
-      console.error('Get LP price helpers error', error)
+
+    if(chainId == ChainId.FDAX){
+      farmsConfig = await (await fetch(`https://raw.githubusercontent.com/fiwallets/farm-config/main/2006.json`)).json<SerializedFarmConfig[]>()
+    }else {
+      farmsConfig = await (await fetch(`${farmConfigApi}/${chainId}.json`)).json<SerializedFarmConfig[]>()
+      try {
+        lpPriceHelpers = await (
+          await fetch(`${farmConfigApi}/priceHelperLps/${chainId}.json`)
+        ).json<SerializedFarmConfig[]>()
+      } catch (error) {
+        console.error('Get LP price helpers error', error)
+      }
     }
+
+    
 
     if (!farmsConfig) {
       throw new Error(`Farms config not found ${chainId}`)

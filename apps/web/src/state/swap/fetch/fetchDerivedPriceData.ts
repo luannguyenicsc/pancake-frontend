@@ -5,6 +5,7 @@ import {
   INFO_CLIENT_WITH_CHAIN,
   STABLESWAP_SUBGRAPH_CLIENT,
   V3_SUBGRAPH_URLS,
+  INFO_CLIENT_FDAX,
 } from 'config/constants/endpoints'
 import { ONE_DAY_UNIX, ONE_HOUR_SECONDS } from 'config/constants/info'
 import { getUnixTime, startOfHour, sub } from 'date-fns'
@@ -52,6 +53,10 @@ const SWAP_INFO_BY_CHAIN = {
   [ChainId.LINEA_TESTNET]: {
     v2: INFO_CLIENT_WITH_CHAIN[ChainId.LINEA_TESTNET],
     v3: V3_SUBGRAPH_URLS[ChainId.LINEA_TESTNET],
+  },
+  [ChainId.FDAX]: {
+    v2: INFO_CLIENT_FDAX,
+    v3: V3_SUBGRAPH_URLS[ChainId.FDAX],
   },
 } satisfies Record<ChainId, Partial<ProtocolEndpoint>>
 

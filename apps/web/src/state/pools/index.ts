@@ -95,6 +95,7 @@ const initialState: PoolsState = {
 }
 
 export const fetchCakePoolPublicDataAsync = () => async (dispatch) => {
+  // const cakePrice = await (await fetch('https://farms-dev.luannguyen-18c.workers.dev/price/cake')).json()
   const cakePrice = await getCakePriceFromOracle()
   const stakingTokenPrice = cakePrice
 

@@ -81,4 +81,18 @@ export const BATCH_MULTICALL_CONFIGS: ChainMap<BatchMulticallConfigs> = {
   [ChainId.ZKSYNC]: DEFAULT,
   [ChainId.ZKSYNC_TESTNET]: DEFAULT,
   [ChainId.LINEA_TESTNET]: DEFAULT,
+  [ChainId.FDAX]: {
+    defaultConfig: {
+      multicallChunk: 50,
+      gasLimitOverride: 1_000_000,
+    },
+    gasErrorFailureOverride: {
+      gasLimitOverride: 1_000_000,
+      multicallChunk: 40,
+    },
+    successRateFailureOverrides: {
+      gasLimitOverride: 1_000_000,
+      multicallChunk: 45,
+    },
+  },
 }

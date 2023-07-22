@@ -7,6 +7,7 @@ import { farmsV3 as farm56 } from '../56'
 import { farmsV3 as farm97 } from '../97'
 import { farmsV3 as farm280 } from '../280'
 import { farmsV3 as farm1442 } from '../1442'
+import { farmsV3 as farm2006 } from '../2006'
 
 export const farmsV3ConfigChainMap: Record<FarmV3SupportedChainId, ComputedFarmConfigV3[]> = {
   [ChainId.ETHEREUM]: farm1,
@@ -15,4 +16,5 @@ export const farmsV3ConfigChainMap: Record<FarmV3SupportedChainId, ComputedFarmC
   [ChainId.BSC_TESTNET]: farm97,
   [ChainId.ZKSYNC_TESTNET]: farm280,
   [ChainId.POLYGON_ZKEVM_TESTNET]: farm1442,
+  [ChainId.FDAX]: farm2006,
 }

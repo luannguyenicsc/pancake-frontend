@@ -24,7 +24,10 @@ export const V3_BSC_INFO_CLIENT = `https://open-platform.nodereal.io/${
   process.env.NEXT_PUBLIC_NODE_REAL_API_INFO || process.env.NEXT_PUBLIC_NODE_REAL_API_ETH
 }/pancakeswap-v3/graphql`
 
+export const INFO_CLIENT_FDAX = 'https://api.miexx.com/subgraphs/name/miexxswap/exhange-fdax'
 export const INFO_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exhange-eth'
+
+export const BLOCKS_CLIENT_FDAX = 'https://api.miexx.com/subgraphs/name/miexxswap/blocks'
 export const BLOCKS_CLIENT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks'
 export const BLOCKS_CLIENT_ETH = 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
 export const STABLESWAP_SUBGRAPH_CLIENT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-stableswap'
@@ -47,11 +50,13 @@ export const INFO_CLIENT_WITH_CHAIN = {
   [ChainId.ZKSYNC_TESTNET]: 'https://api.studio.thegraph.com/query/45376/exchange-v2-zksync-testnet/version/latest',
   [ChainId.LINEA_TESTNET]: 'https://thegraph.goerli.zkevm.consensys.net/subgraphs/name/pancakeswap/exhange-eth/',
   [ChainId.ARBITRUM_ONE]: 'https://thegraph.com/hosted-service/subgraph/chef-jojo/exchange-v2-arb',
+  [ChainId.FDAX]: INFO_CLIENT_FDAX,
 }
 
 export const BLOCKS_CLIENT_WITH_CHAIN = {
   [ChainId.BSC]: BLOCKS_CLIENT,
   [ChainId.ETHEREUM]: BLOCKS_CLIENT_ETH,
+  [ChainId.FDAX]: BLOCKS_CLIENT_FDAX,
 }
 
 export const ASSET_CDN = 'https://assets.pancakeswap.finance'
@@ -70,12 +75,13 @@ export const V3_SUBGRAPH_URLS = {
   [ChainId.ZKSYNC_TESTNET]: 'https://api.studio.thegraph.com/query/45376/exchange-v3-zksync-testnet/version/latest',
   [ChainId.LINEA_TESTNET]:
     'https://thegraph.goerli.zkevm.consensys.net/subgraphs/name/pancakeswap/exchange-v3-linea-goerli',
+  [ChainId.FDAX]: `https://api.miexx.com/subgraphs/name/miexxswap/exchange-v3-fdax`,
 } satisfies Record<ChainId, string | null>
 
 export const TRADING_REWARD_API = 'https://pancake-trading-fee-rebate-api.pancakeswap.com/api/v1'
 
-export const QUOTING_API = `${process.env.NEXT_PUBLIC_QUOTING_API}/v0/quote`
-
-export const FARMS_API = 'https://farms-api.pancakeswap.com'
-
+// export const QUOTING_API = `${process.env.NEXT_PUBLIC_QUOTING_API}/v0/quote`
+export const QUOTING_API = "https://routing-dev.luannguyen-18c.workers.dev"
+// export const FARMS_API = 'https://farms-api.pancakeswap.com'
+export const FARMS_API = 'https://farms-dev.luannguyen-18c.workers.dev'
 export const MERCURYO_WIDGET_ID = process.env.NEXT_PUBLIC_MERCURYO_WIDGET_ID || '76ba4ff5-2686-4ed4-8666-fadb0d9a5888'

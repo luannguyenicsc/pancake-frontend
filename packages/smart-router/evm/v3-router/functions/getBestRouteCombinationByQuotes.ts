@@ -52,7 +52,7 @@ export function getBestRouteCombinationByQuotes(
     (rq: RouteWithQuote) => rq.quoteAdjustedForGas,
     config,
   )
-
+  console.log("swapRoute", swapRoute)
   // It is possible we were unable to find any valid route given the quotes.
   if (!swapRoute) {
     return null
@@ -144,7 +144,6 @@ export function getBestSwapRouteBy(
       return by(routeQuoteA).lessThan(by(routeQuoteB)) ? -1 : 1
     })
   })
-
   const quoteCompFn =
     tradeType === TradeType.EXACT_INPUT
       ? (a: CurrencyAmount<Currency>, b: CurrencyAmount<Currency>) => a.greaterThan(b)
@@ -172,7 +171,6 @@ export function getBestSwapRouteBy(
     },
     3,
   )
-
   if (!percentToSortedQuotes[100] || minSplits > 1) {
     console.log(
       {

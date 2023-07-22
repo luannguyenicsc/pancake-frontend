@@ -419,7 +419,6 @@ export default function V3FormView({
     },
     [price, feeAmount, invertPrice, onBothRangeInput],
   )
-
   return (
     <>
       <DynamicSection

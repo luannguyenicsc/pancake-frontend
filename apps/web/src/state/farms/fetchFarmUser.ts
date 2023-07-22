@@ -45,6 +45,7 @@ export const fetchFarmUserTokenBalances = async (
   farmsToFetch: SerializedFarmConfig[],
   chainId: number,
 ) => {
+  console.log('TOIIIIIIIIIII O DYYYYYYYYYYYYYY')
   const rawTokenBalances = await publicClient({ chainId }).multicall({
     contracts: farmsToFetch.map((farm) => {
       const lpContractAddress = farm.lpAddress

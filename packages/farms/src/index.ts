@@ -31,7 +31,8 @@ export function createFarmFetcher(provider: ({ chainId }: { chainId: FarmV2Suppo
     } & Pick<FetchFarmsParams, 'chainId' | 'farms'>,
   ) => {
     const { isTestnet, farms, chainId } = params
-    const masterChefAddress = isTestnet ? masterChefAddresses[ChainId.BSC_TESTNET] : masterChefAddresses[ChainId.BSC]
+    // const masterChefAddress = isTestnet ? masterChefAddresses[ChainId.BSC_TESTNET] : masterChefAddresses[ChainId.BSC]
+    const masterChefAddress = isTestnet ? masterChefAddresses[ChainId.FDAX] : masterChefAddresses[ChainId.FDAX]
     const { poolLength, totalRegularAllocPoint, totalSpecialAllocPoint, cakePerBlock } = await fetchMasterChefV2Data({
       isTestnet,
       provider,
@@ -60,7 +61,7 @@ export function createFarmFetcher(provider: ({ chainId }: { chainId: FarmV2Suppo
     fetchFarms,
     isChainSupported: (chainId: number) => supportedChainIdV2.includes(chainId),
     supportedChainId: supportedChainIdV2,
-    isTestnet: (chainId: number) => ![ChainId.BSC, ChainId.ETHEREUM].includes(chainId),
+    isTestnet: (chainId: number) => ![ChainId.BSC, ChainId.ETHEREUM, ChainId.FDAX].includes(chainId),
   }
 }
 

@@ -11,6 +11,7 @@ import {
   lineaTestnetTokens,
   arbitrumGoerliTokens,
   arbitrumTokens,
+  fdaxTokens,
 } from '@pancakeswap/tokens'
 
 export const usdGasTokensByChain = {
@@ -26,6 +27,7 @@ export const usdGasTokensByChain = {
   [ChainId.ZKSYNC]: [zksyncTokens.usdc],
   [ChainId.ZKSYNC_TESTNET]: [zkSyncTestnetTokens.usdc],
   [ChainId.LINEA_TESTNET]: [lineaTestnetTokens.usdc],
+  [ChainId.FDAX]: [fdaxTokens.usdt],
 } satisfies Record<ChainId, Token[]>
 
 export * from './v2'

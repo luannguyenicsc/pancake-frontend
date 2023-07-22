@@ -41,7 +41,8 @@ export function useFarmV2PublicAPI() {
   return useSWRImmutable(
     chainId && supportedChainIdV2.includes(chainId) ? ['farm-v2-pubic-api', chainId] : null,
     async () => {
-      return fetch(`https://farms-api.pancakeswap.com/${chainId}`)
+      return fetch(`https://farms-dev.luannguyen-18c.workers.dev/${chainId}`)
+      // return fetch(`https://farms-api.pancakeswap.com/${chainId}`)
         .then((res) => res.json())
         .then((res) => res.data)
     },

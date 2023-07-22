@@ -25,6 +25,9 @@ export function subgraphHealthIndicatorFactory({ getSubgraphName }: FactoryParam
 
 export const V3SubgraphHealthIndicator = subgraphHealthIndicatorFactory({
   getSubgraphName: (chainId) => {
+    if (V3_SUBGRAPH_URLS[chainId]?.startsWith('https://api.miexx.com/subgraphs/name/')) {
+      return V3_SUBGRAPH_URLS[chainId].replace('https://api.miexx.com/subgraphs/name/', '') || ''
+    }
     if (V3_SUBGRAPH_URLS[chainId]?.startsWith('https://api.thegraph.com/subgraphs/name/')) {
       return V3_SUBGRAPH_URLS[chainId].replace('https://api.thegraph.com/subgraphs/name/', '') || ''
     }

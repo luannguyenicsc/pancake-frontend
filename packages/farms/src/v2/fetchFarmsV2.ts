@@ -37,6 +37,11 @@ const evmNativeStableLpMap: Record<
     wNative: 'WBNB',
     stable: 'BUSD',
   },
+  [ChainId.FDAX]: {
+    address: '0x15900188ef55317fa1d9f3c9a57fdd01e07dcd72',
+    wNative: 'WFDX',
+    stable: 'USDT',
+  },
 }
 
 export const getTokenAmount = (balance: BN, decimals: number) => {
@@ -199,7 +204,8 @@ export const fetchMasterChefData = async (
     const masterChefCalls = farms.map((farm) => masterChefFarmCalls(farm, masterChefAddress))
     const masterChefAggregatedCalls = masterChefCalls.filter(notEmpty)
 
-    const chainId = isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC
+    // const chainId = isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC
+    const chainId = isTestnet ? ChainId.FDAX : ChainId.FDAX
     const masterChefMultiCallResult = await provider({ chainId }).multicall({
       contracts: masterChefAggregatedCalls,
       allowFailure: false,
@@ -236,7 +242,8 @@ export const fetchMasterChefV2Data = async ({
   masterChefAddress: Address
 }) => {
   try {
-    const chainId = isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC
+    // const chainId = isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC
+    const chainId = isTestnet ? ChainId.FDAX : ChainId.FDAX
     const [poolLength, totalRegularAllocPoint, totalSpecialAllocPoint, cakePerBlock] = await provider({
       chainId,
     }).multicall({

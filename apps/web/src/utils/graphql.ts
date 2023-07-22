@@ -6,6 +6,7 @@ import {
   INFO_CLIENT_ETH,
   V3_SUBGRAPH_URLS,
   V3_BSC_INFO_CLIENT,
+  INFO_CLIENT_FDAX,
 } from 'config/constants/endpoints'
 import { GraphQLClient } from 'graphql-request'
 import { INFO_CLIENT_WITH_CHAIN } from '../config/constants/endpoints'
@@ -44,14 +45,18 @@ export const v3Clients = {
   [ChainId.POLYGON_ZKEVM]: new GraphQLClient(V3_SUBGRAPH_URLS[ChainId.POLYGON_ZKEVM]),
   [ChainId.ZKSYNC_TESTNET]: new GraphQLClient(V3_SUBGRAPH_URLS[ChainId.ZKSYNC_TESTNET]),
   [ChainId.LINEA_TESTNET]: new GraphQLClient(V3_SUBGRAPH_URLS[ChainId.LINEA_TESTNET]),
+  [ChainId.FDAX]: new GraphQLClient(V3_SUBGRAPH_URLS[ChainId.FDAX]),
+
 }
 
 export const v3InfoClients = { ...v3Clients, [ChainId.BSC]: new GraphQLClient(V3_BSC_INFO_CLIENT) }
 
 export const infoClientETH = new GraphQLClient(INFO_CLIENT_ETH)
+export const infoClientFDAX = new GraphQLClient(INFO_CLIENT_FDAX)
 
 export const v2Clients = {
   [ChainId.ETHEREUM]: infoClientETH,
+  [ChainId.FDAX]: infoClientFDAX,
   [ChainId.BSC]: infoClient,
   [ChainId.POLYGON_ZKEVM]: new GraphQLClient(INFO_CLIENT_WITH_CHAIN[ChainId.POLYGON_ZKEVM]),
 }

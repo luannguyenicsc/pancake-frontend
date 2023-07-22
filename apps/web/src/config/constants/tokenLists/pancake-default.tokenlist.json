@@ -273,6 +273,54 @@
       "chainId": 1,
       "decimals": 8,
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/wbtc.png"
+    },  
+    {
+      "name": "Wrapped FDX",
+      "symbol": "WFDX",
+      "address": "0xa27a128dD70479FD2B37662223C6523F10eBc21A",
+      "chainId": 2006,
+      "decimals": 18,
+      "logoURI": "https://tokens.pancakeswap.finance/images/eth/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2.png"
+    },
+    {
+      "name": "Ethereum Token",
+      "symbol": "ETH",
+      "address": "0x88435653afebe9806cff334f2f04a1fdd5d4eb63",
+      "chainId": 2006,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.png"
+    },
+    {
+      "name": "Tether USD",
+      "symbol": "USDT",
+      "address": "0x3f851192d8b2d8dadc7c2b49f7a9fa27cdcea680",
+      "chainId": 2006,
+      "decimals": 6,
+      "logoURI": "https://tokens.pancakeswap.finance/images/eth/0xdAC17F958D2ee523a2206206994597C13D831ec7.png"
+    },
+    {
+      "name": "Wrapped BTC",
+      "symbol": "WBTC",
+      "address": "0x51db507c3aFAD70b944Bd9d3b11822a515bbAD82",
+      "chainId": 2006,
+      "decimals": 8,
+      "logoURI": "https://tokens.pancakeswap.finance/images/eth/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599.png"
+    },
+    {
+      "name": "MiexxSwap Token",
+      "symbol": "MIEXX",
+      "address": "0x4B96c9c245E3b852Bc071f53C81f0412eCdD26ac",
+      "chainId": 2006,
+      "decimals": 18,
+      "logoURI": "https://tokens.pancakeswap.finance/images/eth/0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898.png"
+    },    
+    {
+      "name": "BUSD Token",
+      "symbol": "BUSD",
+      "address": "0xe5e8ca35b7bf7045288bf6731f071f9f98c5ce47",
+      "chainId": 2006,
+      "decimals": 18,
+      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/busd.png"
     }
   ]
 }

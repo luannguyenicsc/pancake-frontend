@@ -20,6 +20,8 @@ export const V3_SUBGRAPH_CLIENTS = {
     fetch,
   }),
   [ChainId.BSC]: new GraphQLClient('https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-v3-bsc', { fetch }),
+  [ChainId.FDAX]: new GraphQLClient('https://api.miexx.com/subgraphs/name/miexxswap/exchange-v3-fdax', { fetch }),
+
   [ChainId.BSC_TESTNET]: new GraphQLClient('https://api.thegraph.com/subgraphs/name/pancakeswap/exchange-v3-chapel', {
     fetch,
   }),
@@ -31,7 +33,7 @@ export const V3_SUBGRAPH_CLIENTS = {
   ),
 } satisfies Record<Exclude<FarmV3SupportedChainId, ChainId.POLYGON_ZKEVM_TESTNET>, GraphQLClient>
 
-const zChainId = z.enum(['56', '1', '5', '97', '280'])
+const zChainId = z.enum(['56', '1', '5', '97', '280', '2006'])
 
 const zAddress = z.string().regex(/^0x[a-fA-F0-9]{40}$/)
 

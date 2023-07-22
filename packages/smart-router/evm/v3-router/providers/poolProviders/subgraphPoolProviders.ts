@@ -43,7 +43,7 @@ function subgraphPoolProviderFactory<M extends PoolMeta, P extends WithTvl>({
     }
 
     const client = provider({ chainId })
-
+    
     if (!client) {
       console.error('No subgraph client found for chainId', chainId)
       return []

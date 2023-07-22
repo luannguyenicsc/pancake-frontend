@@ -1,5 +1,41 @@
 import { ChainId, ERC20Token } from '@pancakeswap/sdk'
 
+// FDAX
+export const CAKE_FDAX = new ERC20Token(
+  ChainId.FDAX,
+  '0x4B96c9c245E3b852Bc071f53C81f0412eCdD26ac',
+  18,
+  'MIEXX',
+  'MiexxSwap Token',
+  'https://pancakeswap.finance/',
+)
+
+export const USDT_FDAX = new ERC20Token(
+  ChainId.FDAX,
+  '0x3f851192d8b2d8dadc7c2b49f7a9fa27cdcea680',
+  18,
+  'USDT',
+  'Tether USD',
+  'https://tether.to/',
+)
+
+export const BUSD_FDAX = new ERC20Token(
+  ChainId.FDAX,
+  '0xe5e8ca35b7bf7045288bf6731f071f9f98c5ce47',
+  18,
+  'BUSD',
+  'Binance USD',
+  'https://www.paxos.com/busd/',
+)
+
+export const WBTC_FDAX = new ERC20Token(
+  ChainId.FDAX,
+  '0x51db507c3aFAD70b944Bd9d3b11822a515bbAD82',
+  8,
+  'WBTC',
+  'Wrapped BTC',
+)
+
 export const CAKE_MAINNET = new ERC20Token(
   ChainId.BSC,
   '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
@@ -118,6 +154,7 @@ export const BUSD = {
     'BUSD',
     'Binance USD',
   ),
+  [ChainId.FDAX]: BUSD_FDAX,
 }
 
 export const CAKE = {
@@ -155,6 +192,7 @@ export const CAKE = {
     'PancakeSwap Token',
     'https://pancakeswap.finance/',
   ),
+  [ChainId.FDAX]: CAKE_FDAX,
 }
 
 export const USDC = {
@@ -224,6 +262,7 @@ export const USDT = {
     'USDT',
     'Tether USD',
   ),
+  [ChainId.FDAX]: USDT_FDAX,
 }
 
 export const WBTC_ETH = new ERC20Token(
@@ -246,4 +285,5 @@ export const STABLE_COIN = {
   [ChainId.POLYGON_ZKEVM]: USDT[ChainId.POLYGON_ZKEVM],
   [ChainId.POLYGON_ZKEVM_TESTNET]: USDT[ChainId.POLYGON_ZKEVM_TESTNET],
   [ChainId.LINEA_TESTNET]: USDC[ChainId.LINEA_TESTNET],
+  [ChainId.FDAX]: USDT[ChainId.FDAX],
 } satisfies Record<ChainId, ERC20Token>

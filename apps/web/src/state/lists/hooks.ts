@@ -8,6 +8,7 @@ import {
   WARNING_LIST_URLS,
   ETH_URLS,
   BSC_URLS,
+  FDAX_URLS,
 } from 'config/constants/lists'
 import { atom, useAtomValue } from 'jotai'
 import mapValues from 'lodash/mapValues'
@@ -208,7 +209,8 @@ export function useAllLists(): {
         urls,
         (_, url) =>
           (chainId === ChainId.ETHEREUM && ETH_URLS.includes(url)) ||
-          (chainId === ChainId.BSC && BSC_URLS.includes(url)),
+          (chainId === ChainId.BSC && BSC_URLS.includes(url))||
+          (chainId === ChainId.FDAX && FDAX_URLS.includes(url)),
       ),
     [chainId, urls],
   )
@@ -227,6 +229,7 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
     [ChainId.ZKSYNC]: { ...map1[ChainId.ZKSYNC], ...map2[ChainId.ZKSYNC] },
     [ChainId.ZKSYNC_TESTNET]: { ...map1[ChainId.ZKSYNC_TESTNET], ...map2[ChainId.ZKSYNC_TESTNET] },
     [ChainId.LINEA_TESTNET]: { ...map1[ChainId.LINEA_TESTNET], ...map2[ChainId.LINEA_TESTNET] },
+    [ChainId.FDAX]: { ...map1[ChainId.FDAX], ...map2[ChainId.FDAX] },
   }
 }
 
@@ -240,7 +243,8 @@ export function useActiveListUrls(): string[] | undefined {
       urls.filter(
         (url) =>
           (chainId === ChainId.ETHEREUM && ETH_URLS.includes(url)) ||
-          (chainId === ChainId.BSC && BSC_URLS.includes(url)),
+          (chainId === ChainId.BSC && BSC_URLS.includes(url)) ||
+          (chainId === ChainId.FDAX && FDAX_URLS.includes(url)),
       ),
     [urls, chainId],
   )
