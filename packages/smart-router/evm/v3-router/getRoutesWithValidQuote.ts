@@ -66,7 +66,5 @@ export async function getRoutesWithValidQuote({
   const result = await Promise.all(chunks.map(getQuotes))
   const quotes = result.reduce<RouteWithQuote[]>((acc, cur) => [...acc, ...cur], [])
   metric('Get quotes', 'success, got', quotes.length, 'quoted routes', quotes)
-
-  console.log('~~~~~~ res getRoutesWithValidQuote', quotes)
   return quotes
 }

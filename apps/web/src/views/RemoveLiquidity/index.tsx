@@ -179,7 +179,7 @@ export default function RemoveLiquidity({ currencyA, currencyB, currencyIdA, cur
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: 'Pancake LPs',
+      name: 'Primal LPs', // PancakeERC20 Name 
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address as `0x${string}`,
@@ -198,7 +198,7 @@ export default function RemoveLiquidity({ currencyA, currencyB, currencyIdA, cur
       nonce,
       deadline: Number(deadline),
     }
-
+    console.log('~~~~~~ message', message)
     signTypedDataAsync({
       // @ts-ignore
       domain,
@@ -382,6 +382,8 @@ export default function RemoveLiquidity({ currencyA, currencyB, currencyIdA, cur
     // we have a signature, use permit versions of remove liquidity
     else if (signatureData !== null) {
       // removeLiquidityETHWithPermit
+      console.log('~~~~~~ removeLiquidityETHWithPermit', oneCurrencyIsNative)
+
       if (oneCurrencyIsNative) {
         methodNames = ['removeLiquidityETHWithPermit', 'removeLiquidityETHWithPermitSupportingFeeOnTransferTokens']
         args = [

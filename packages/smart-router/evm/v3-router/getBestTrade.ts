@@ -20,6 +20,9 @@ export async function getBestTrade(
     ...config,
     blockNumber,
   })
+
+  console.log('~~~~~~~~CHECK BEST ROUTER~~~~~~~~', config, currency, tradeType)
+
   if (!bestRoutes || bestRoutes.outputAmount.equalTo(ZERO)) {
     throw new Error('Cannot find a valid swap route')
   }

@@ -52,8 +52,6 @@ async function sha256(message: string) {
 
 router.get('/v0/quote', async (req, event: FetchEvent) => {
 
-  console.log('~~~~~~~~~~~~~~~~~~~ Get quote',req)
-
   const parsed = SmartRouter.APISchema.zRouterGetParams.safeParse(req.query)
   if (parsed.success === false) {
     return error(400, 'Invalid params')
@@ -120,8 +118,6 @@ function timeout(seconds: number) {
 
 router.post('/v0/quote', async (req, event) => {
   const body = (await req.json?.()) as any
-
-  console.log('~~~~~~~~~~~~~~~~~~~ Get quote',body)
   const parsed = SmartRouter.APISchema.zRouterPostParams.safeParse(body)
   if (parsed.success === false) {
     return error(400, 'Invalid params')

@@ -18,7 +18,7 @@ export const useApproveETH = (spender: string) => {
   const { chainId } = useActiveChainId()
 
   const ethContract = useTokenContract(WETH9[chainId].address)
-
+  console.log('ethContract', ethContract)
   const onApprove = useCallback(async () => {
     const receipt = await fetchWithCatchTxError(() => {
       return callWithGasPrice(ethContract, 'approve', [spender as Address, MaxUint256])

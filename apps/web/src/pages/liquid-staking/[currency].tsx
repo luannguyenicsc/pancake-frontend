@@ -184,7 +184,7 @@ const LiquidStakingStakePage = () => {
         }}
         width="100%"
       >
-        {isPending ? t('Enabling') : t('Enable')}
+        {isPending ? t('Enabling') : t('Enable need to check')}
       </Button>
     )
   } else if (isApprovedEnough && account) {

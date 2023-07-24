@@ -22,9 +22,7 @@ export const queryKey = ({
 }) => [{ entity: 'accountResource', networkName, address, resourceType }] as const
 
 const queryFn = ({ queryKey: [{ networkName, address, resourceType }] }: QueryFunctionArgs<typeof queryKey>) => {
-  console.log('~~~~~~ res queryFn networkName', networkName)
-  console.log('~~~~~~ res queryFn address', address)
-  if (!address) throw new Error('address is required 111111111111')
+  if (!address) throw new Error('address is required')
   if (!resourceType) throw new Error('resourceType is required')
   return fetchAccountResource({ networkName, address, resourceType })
 }

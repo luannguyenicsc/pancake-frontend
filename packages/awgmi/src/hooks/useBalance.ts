@@ -40,9 +40,7 @@ export function useBalance<TData = UseBalanceResult>({
   const balanceQuery = useQuery(
     queryKey({ address, networkName, coin }),
     async ({ queryKey: [{ address: address_, networkName: networkName__, coin: coin_ }] }) => {
-      console.log('~~~~~~ res queryFn networkName', networkName)
-      console.log('~~~~~~ res queryFn address', address)
-      if (!address_) throw new Error('address is required 555555')
+      if (!address_) throw new Error('address is required')
       if (!coinData) throw new Error('coin data is missing')
       const balance = await fetchBalance({ address: address_, coin: coin_, networkName: networkName__ })
       return {

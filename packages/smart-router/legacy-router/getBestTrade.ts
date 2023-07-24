@@ -24,7 +24,7 @@ function createGetBestTrade<TTradeType extends TradeType>(tradeType: TTradeType)
     const {
       currency: { chainId },
     } = amountIn
-
+    console.log('~~~~~~~~CHECK BEST  innerr~~~~~~~~', amountIn, output, options)
     const bestTradeV2 = await getBestTradeFromV2(amountIn, output, options)
     const bestTradeStable =
       (bestTradeV2 || isExactIn) &&
